@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+# This program, CAGrepeats.pl, finds the number of CAG repeats in a DNA sequence
+# Author: Noreen Brenner, based upon a program in the book Bioinformatics: Sequence and Genome Analysis, by David W. Mount
+
+# store the dna sequence data 
+# into the scalar variable $sequence
+
+$sequence = "GATACGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAG";
+
+# count the number of CAG repeats using a regular expression
+
+$counter++ foreach $sequence =~ /CAG/g;
+$counter1++ foreach $sequence =~ /CAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAG/g;
+
+# print the number of CAG repeats found
+print "number of CAG repeats is ", $counter, "\n";
+print "number of CAG repeats that are repeated 36 times is ", $counter1, "\n";
+
+
+
+exit;
