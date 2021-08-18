@@ -1,0 +1,50 @@
+#!/usr/bin/perl                                                                                                                        
+# Homework 3 question 4 by Noreen Brenner, partially based on feedback from Professor Benjmain King, UMaine                                                                                              
+# Script that reads in a FASTQ file that contains 100,000 RNAseq reads                                                                 
+# and calculates the percent GC content for each of the 36 positions                                                                   
+
+# Open the file that contains the list of RNAseq reads                                                                                 
+$input_fd = open(INPUT,"<mini.fasq");
+
+# read the lines from the input file                                                                                      
+while (<INPUT>) {
+    $line = $_;
+
+    # Remove return character at end of line
+    chomp($line);
+
+    # Step 1: Test whether line contains only ATGCN
+    if ($line =~ /^[ATGCN]+$/) {
+
+	# Step 2: Split read into 36 separate bases and store each base in an array named @bases.
+	#         This array is overwritten each time.
+
+	@bases = split('',$line);
+
+	# Step 3: Use a for loop to iterate over the 36 positions
+	for ($i = 0;$i < 36;$i++) {
+
+	    if ($bases[$i] eq "G") {
+		$G_counter[$i]++;
+	    }
+	    if ($bases[$i] eq "C") {
+		$G_counter[$i]++;
+	    }
+	}
+
+	# Step 4: Use a variable to count how many sequence lines there are
+	$seq_counter++;
+
+    }
+}
+
+close INPUT;
+
+# Step 5: Now that entire file has been processed, calculate the percent GC at each of the 36 positions
+
+
+for ($i = 0;$i < 36;$i++) {
+
+    print "Position ",$i+1," GC = ",(($G_counter[$i] + $C_counter[$i])/$seq_counter)*100,"%\n";
+
+}
