@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @NoreenBrenner, a bioinformaticist and molecular biologist
-- 👀 I’m interested in programming languages for bioinformatics, including Perl, Python, R, and Java and bioinformatics tools such as Galaxy. I also know cell biology and developmental biology and have a background in neuroscience, botany, zoology and even linguistics (anthropological linguistics and intercultural communication) and English literature.
+- 👋 Hi, I’m @NoreenBrenner, a bioinformaticist and molecular biologist. I also know cell biology and developmental biology and have a background in neuroscience, botany, zoology and even linguistics (anthropological linguistics and intercultural communication) and English literature.
+- 👀 I’m interested in programming languages for bioinformatics, including Perl, Python, R, and Java and bioinformatics tools such as Galaxy. 
 - 🌱 I’m currently improving my Python skills for bioinformatics with a Coursera class. I am also taking a Coursera class on statistics, which is essential for bioinformatics.
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
