@@ -1,0 +1,241 @@
+# futval_graph2.py
+# This program calculates the future value of a ten year investment
+# with an apr in one percent increments from one to twenty percent
+# code written by Noreen Brenner, with contributions by James Rhudy
+
+from graphics import *
+
+def main():
+
+    # Introduction
+    print('This program calculates the future value of a ten year investment')
+    print('with an apr in one percent increments from one to twenty percent.')
+
+    # Get the principal as input from the user
+    # initial_principal is the initial value of the investment in dollars
+    initial_principal = eval(input('Enter the initial principal:  '))
+    
+    
+    # Use a future value formula to obtain the highest value obtained at 20
+    # percent interest after 10 years
+    # highest_value is the variable representing the final investment value at
+    # 20 percent interest after 10 years
+    # Code written by Noreen Brenner
+    
+    highest_value = round(initial_principal*((1.2)**10))
+
+    # obtain the value of 1/4, 1/2 and 3/4 of the highest value 
+    # the highest value and other values are rounded off to an integer value
+    # create lists with the dollar sign added to the above values represented
+    # as strings
+    # Code written by Noreen Brenner (James Rhudy came up with the
+    # idea to multiply the highest value by 1.07 to obtain the highest     
+    # coordinate)
+    one_quarter = round(highest_value/4.0)
+    one_half = round(highest_value/2.0)
+    three_quarters = round(highest_value*3.0/4.0)
+    highest_coordinate = highest_value*1.07
+    lowest_coordinate = (highest_value*(-0.02))
+    List1 = ['$', str(initial_principal)]
+    List2 = ['$', str(one_quarter)]
+    List3 = ['$', str(one_half)]
+    List4 = ['$', str(three_quarters)]
+    List5 = ['$', str(highest_value)]
+    
+    # Add the variable lowest_coordinate, to anchor the graph
+    # Code written by James Rhudy and Noreen Brenner
+    # lowest_coordinate = (highest_value*(-0.02))
+
+    # Create the graphics window and add labels on the left edge using the
+    # text strings created above
+    # Code written by Noreen Brenner - it was Noreen Brenner's idea to use the
+    # lowest and highest coordinates in the setCoords method
+    win = GraphWin("Investment Growth Chart showing future values each year for ten years, with apr's from 1% to 20 %, in 1% increments", 1280, 960)
+    win.setBackground("white")
+    win.setCoords(-1.75, lowest_coordinate, 11.5, highest_coordinate)
+    Text(Point(-1,initial_principal), List1).draw(win)
+    Text(Point(-1, one_quarter), List2).draw(win)
+    Text(Point(-1, one_half), List3).draw(win)
+    Text(Point(-1, three_quarters), List4).draw(win)
+    Text(Point(-1, highest_value), List5).draw(win)
+
+    
+    # Draw bar for initial principal
+    # Code written by Noreen Brenner 
+    bar = Rectangle(Point(0, 0), Point(1, initial_principal))
+    # fill in the bar with green color and set the bar's width
+    bar.setFill("green")
+    bar.setWidth(1)
+    bar.draw(win)
+
+
+    # Make two for loops, an outer loop for the apr values (starting at 20
+    # percent or 0.2, since rectangles drawn later appear on top of rectangles
+    # drawn earlier) and an inner loop for years one through ten
+    # apr is the annual percentage rate of interest
+    # Code written by Noreen Brenner
+    for apr in [0.2, 0.19, 0.18, 0.17, 0.16, 0.15, 0.14, 0.13, 0.12, 0.11, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05, 0.04, 0.03, 0.02, 0.01]:
+    
+        # Draw a bar for each of ten years
+        # Code written by Noreen Brenner
+
+        principal=initial_principal
+        for i in range(1,11):
+            principal = principal * (1.0 + apr)
+            # this formula is from Zelle, Python Programming, page 49
+            bar = Rectangle(Point(i, 0), Point(i+1, principal))
+	    # color each rectangle or bar representing a particular apr one
+	    # color. For instance, color the ten rectangles representing the
+	    # value of the principal at the end of each year at twenty
+	    # percent apr from year one through year ten red
+	    # Code written by Noreen Brenner
+            if apr == 0.2:
+                bar.setFill("red")
+            if apr == 0.19:
+                bar.setFill("yellow")
+            if apr == 0.18:
+                bar.setFill("blue3")
+            if apr == 0.17:
+                bar.setFill("orange")
+            if apr == 0.16:
+                bar.setFill("purple")
+            if apr == 0.15:
+                bar.setFill("pink")
+            if apr == 0.14:
+                bar.setFill("magenta")
+            if apr == 0.13:
+                bar.setFill("cyan")
+            if apr == 0.12:
+                bar.setFill("violet")
+            if apr == 0.11:
+                bar.setFill("grey")
+            if apr == 0.10:
+                bar.setFill("red3")
+            if apr == 0.09:
+                bar.setFill("yellow3")
+            if apr == 0.08:
+                bar.setFill("blue4")
+            if apr == 0.07:
+                bar.setFill("green3")
+            if apr == 0.06:
+                bar.setFill(color_rgb(130, 0, 130))
+            if apr == 0.05:
+                bar.setFill("pink3")
+            if apr == 0.04:
+                bar.setFill(color_rgb(250, 0, 0))
+            if apr == 0.03:
+                bar.setFill("yellow4")
+            if apr == 0.02:
+                bar.setFill("pink4")
+            if apr == 0.01:
+                bar.setFill("blue")
+         
+
+            #if apr == [0.2, 0.19, 0.18, 0.17, 0.16, 0.15, 0.14, 0.13, 0.12, 0.11, 0.10, 0.09, 0.08, 0.07, 0.06, 0.05, 0.04, 0.03, 0.02, 0.01]:
+                #format(bar.setFill(["red", "grey", "yellow", "pink", "violet", "orange", "white", "mauve", "violet3", "orange2", "purple", "cyan", "red3", "yellow3", "grey3", "orange3", "pink3", "cyan3", "mauve3", "purple3"]))
+                #Noreen Brenner came up with this idea, but it is possibly not feasible
+            bar.setWidth(1)
+            bar.draw(win)
+            
+           
+
+    # Add a text box with title
+    # Code written by James Rhudy
+    Text(Point(3.5, highest_value*0.9), 'Ten-Year Growth of an Investment at interest rates ranging from 1% to 20% in one percent increments').draw(win)
+
+    # Add labels on top of the bars indicating year 0 as year of initial
+    # investment and each of the ten years
+    # Code written partially by James Rhudy, who came up with the idea of multiplying
+    # a value by 1.16 or a similar value at an earlier step in the code and that
+    # Noreen Brenner applied here
+    # The y-coordinate of the text is the height of each bar plus a small percentage
+    # of its height
+    # Code written by James Rhudy and Noreen Brenner, calculation of height of each bar by Noreen Brenner
+    Text(Point(0.5, initial_principal*1.16), 'Year 0').draw(win)
+    Text(Point(1.5, initial_principal*1.4), 'Year 1').draw(win)
+    Text(Point(2.5, initial_principal*1.6), 'Year 2').draw(win)
+    Text(Point(3.5, initial_principal*1.85), 'Year 3').draw(win)
+    Text(Point(4.5, initial_principal*2.21), 'Year 4').draw(win)
+    Text(Point(5.5, initial_principal*2.61), 'Year 5').draw(win)
+    Text(Point(6.5, initial_principal*3.11), 'Year 6').draw(win)
+    Text(Point(7.5, initial_principal*3.71), 'Year 7').draw(win)
+    Text(Point(8.5, initial_principal*4.41), 'Year 8').draw(win)
+    Text(Point(9.5, initial_principal*5.27), 'Year 9').draw(win)
+    Text(Point(10.5, initial_principal*6.31), 'Year 10').draw(win)
+
+    # Add a legend that relates the apr to the bar colors 
+    # First define the values that are to be placed within the coordinates
+    # Code written by Noreen Brenner
+    a = highest_value/3.0
+    b = (highest_value)/40.0
+   
+    # Create the rectangles for the legend with a for loop
+    # The for loop ranges from zero to 19, as the first rectangle's
+    # y-coordinate on the bottom is simply one-third the highest value
+    # See accompanying word document for detailed explanation of formulae used
+    # Code written by Noreen Brenner
+    for j in range (0,20,1):
+        rect = Rectangle(Point(0,(a+j*b)), Point(1,(a+((j+1)*b))))
+        #rect.setFill(color_rgb(255, j**2, 0))
+        # fill the rectangles with color using if statements 
+        if j == 19:
+            rect.setFill("red")
+        if j == 18:
+            rect.setFill("yellow")
+        if j == 17:
+            rect.setFill("blue3")
+        if j == 16:
+            rect.setFill("orange")
+        if j == 15:
+            rect.setFill("purple")
+        if j == 14:
+            rect.setFill("pink")
+        if j == 13:
+            rect.setFill("magenta")
+        if j == 12:
+            rect.setFill("cyan")
+        if j == 11:
+            rect.setFill("violet")
+        if j == 10:
+            rect.setFill("grey")
+        if j == 9:
+            rect.setFill("red3")
+        if j == 8:
+            rect.setFill("yellow3")
+        if j == 7:
+            rect.setFill("blue4")
+        if j == 6:
+            rect.setFill("green3")
+        if j == 5:
+            rect.setFill(color_rgb(130, 0, 130))
+        if j ==4:
+            rect.setFill("pink3")
+        if j == 3:
+            rect.setFill(color_rgb(250, 0, 0))
+        if j == 2:
+            rect.setFill("yellow4")
+        if j == 1:
+            rect.setFill("pink4")
+        if j == 0:
+            rect.setFill("blue")
+        rect.setWidth(2)
+        rect.draw(win)
+
+
+    # Create the text for the legend using a for loop and a list of
+    # the percentage values as a string
+    # Code written by Noreen Brenner
+    for k in range (0,20,1):
+        List6 = [str(k+1), '%']
+
+        Text(Point(1.3, a+(b*k)+(b/2)), List6).draw(win)
+
+         
+
+           
+        
+    
+    input("Press <Enter> to quit.")
+    win.close()
+
+main()
