@@ -1,0 +1,134 @@
+Code written by Noreen Brenner
+
+def main():
+
+    #Introduction
+    # Code written by Noreen Brenner
+    print("\n\nThis program searches for a keyword in the file 'sample-text'")
+    print("and prints the results to the screen.\n\n")
+
+    # Obtain the keyword from the user
+    searchfor = input("Enter the keyword:  ")
+    
+    # Open the file "sample-text.txt", a file
+    # that is in the same folder as this file
+    file1 = open("sample-text.txt", "r")
+
+    # Read the contents of the file
+    filecontents = file1.read()
+
+    # Assign filecontents to a variable, string
+    string = filecontents
+    
+    # Split the contents of the file into a list of sentences.
+    # Divide the sentences based upon where the period occurs.
+    List1 = string.split(".")
+
+
+    #for i in range (0,13,1):
+        #line(i+1)=list1[i]
+   
+
+    # Create strings that are each sentence and a period.
+    String1 = List1[0] + "."
+    String2 = List1[1] + "."
+    String3 = List1[2] + "."
+    String4 = List1[3] + "."
+    String5 = List1[4] + "."
+    String6 = List1[5] + "."
+    String7 = List1[6] + "."
+    String8 = List1[7] + "."
+    String9 = List1[8] + "."
+    String10 = List1[9] + "."
+    String11 = List1[10] + "."
+    String12 = List1[11] + "."
+    String13 = List1[12] + "."
+
+    # Print the heading for the results.
+    print("\n\nResults of search for keyword", searchfor,"(if the keyword is not present in the file there will be a blank space right below this line):\n\n")
+
+    # Create if statements with regard to whether the keyword
+    # is present in each sentence
+
+    if String1.count(searchfor) > 0:
+        print("Match in line 1: ", String1, "\n")
+
+    if String2.count(searchfor) > 0:
+        print("Match in line 2:", String2, "\n")
+
+    if String3.count(searchfor) > 0:
+        print("Match in line 3:", String3, "\n")
+
+    if String4.count(searchfor) > 0:
+        print("Match in line 4:", String4, "\n")
+
+    if String5.count(searchfor) > 0:
+        print("Match in line 5:", String5, "\n")
+
+    if String6.count(searchfor) > 0:
+        print("Match in line 6: ", String6[2:], "\n")
+
+    if String7.count(searchfor) > 0:
+        print("Match in line 7:", String7, "\n")
+
+    if String8.count(searchfor) > 0:
+        print("Match in line 8:", String8, "\n")
+
+    if String9.count(searchfor) > 0:
+        print("Match in line 9:", String9, "\n")
+
+    if String10.count(searchfor) > 0:
+        print("Match in line 10:", String10, "\n")
+        
+    if String11.count(searchfor) > 0:
+        print("Match in line 11:", String11, "\n")
+
+    if String12.count(searchfor) > 0:
+        print("Match in line 12:", String12[1:], "\n")
+
+    if String13.count(searchfor) > 0:
+        print("Match in line 13:", String13, "\n")
+    
+        
+   
+    # Most of the following code was an attempt to solve the homework using for loops
+    # Create if statements with regard to whether the keyword "Python" is present
+    # in each sentence
+    #for i in range(13):
+     #   for j in range(5):
+      #      if ((String(i).count("Python"))>0) == True:
+       #         print("Match",j,":", String(i))
+
+
+
+    #for j in range(5):
+     #   print("Match", j, ":", String(j))
+
+    #String1.find("python")
+    
+
+
+    #for i in range(13):
+        #if string(i+1).count("python")>0:
+            #print(String(i+1)
+
+        #substring = "Python"
+    #find the first occurrence of the word python in each sentence, nb
+    #Match = raw_input(String1.find(substring))
+    # String2.find(substring)
+
+
+    #for i in (1,6):
+
+    #    if Match == substring:
+    #         print ('Match',i,':', String(i))
+
+
+   
+    
+
+    # Close the file
+    file1.close()
+
+
+main()
